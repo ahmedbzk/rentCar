@@ -59,11 +59,15 @@ nav a {
 }
 
 .hero {
-    min-height: 70vh; 
+    padding: 100px; 
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+}@media (max-width: 769px) {
+  .hero {
+        padding: 10px;
+  }
 }
 
 

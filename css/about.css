@@ -21,4 +21,10 @@
     align-items: center;
     justify-content: center;
     color: white;
+    padding: 100px;
+}
+@media (max-width: 769px) {
+  .aboutUs-hero {
+        padding: 10px;
+  }
 }

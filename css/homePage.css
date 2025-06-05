@@ -90,20 +90,19 @@ margin-bottom: 0.5rem;
     margin-top: 5px;
 }
 
-.custom-form-div:focus-within{
- border: 1px solid black;
-  border-radius: 10px;
-  background-color: #ECECEC !important;
-}
-
-.custom-form-div {
+.custom-form-div,
+.custom-form-div input,
+.custom-form-div textarea,
+.custom-form-div select {
+  box-sizing: border-box;
   background-color: #ECECEC;
- 
+  border: 3px solid transparent; /* sabit kalınlık */
+  border-radius: 5px;
+  transition: border-color 0.2s ease;
 }
 
 .custom-form-div:focus-within {
-  border: 3px solid black;
-  border-radius: 5px;
+  border-color: black;
 }
 
 .addReturnDiv {
