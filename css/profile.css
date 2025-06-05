@@ -1,0 +1,54 @@
+.profile-hero-wrapper {
+    background: 
+    linear-gradient(to bottom, rgb(59 59 59 / 78%), rgba(0, 0, 0, 0)), 
+    url('../images/banner3.png') no-repeat center center / cover;
+    margin-left: calc(50% - 50vw);  /* Taşma: sola */
+    margin-right: calc(50% - 50vw); /* Taşma: sağa */
+    width: 100vw;
+    margin-top: -175px;
+    padding-top: 175px; 
+    height: 90px;
+}
+
+.profile-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#loader{
+    display: flex;
+}
+
+#profileSettingsForm{
+    display: none;
+}
+
+#passwordSettingsForm{
+    display: none;
+}
+
+#transferSettingsForm{
+    display: none;
+}
+
+#paymentSettingsForm{
+    display: none;
+}
+
+#profileSettings{
+    color: #FD991E;
+}
+
+#passwordSettings{
+    color: black;
+}
+
+#transferSettings{
+    color: black;
+}
+
+#paymentSettings{
+    color: black;
+}

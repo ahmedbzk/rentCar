@@ -1,0 +1,35 @@
+.p{
+    color: darkgray;
+}
+
+.hr{
+    margin-top: 0px;
+    width: 100%;
+   border: solid 2px black;
+}
+.h6{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.col-md-3{
+    padding: 30px;
+    margin-bottom: 1.5rem;
+}
+
+.img{
+    height: 15%;
+}
+
+.form-select{
+    background-color: black;
+    border: none;
+    color: white;
+    margin-bottom: 45px;
+    margin-top: 20px;
+}
+.logoIcon{
+    margin-top: 35px;
+    font-size: x-large;
+    color: darkgray;
+}

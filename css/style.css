@@ -1,0 +1,181 @@
+
+@font-face {
+    font-family: 'EuclidMedium';
+    src: url('../fonts/EuclidMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'EuclidMedium', sans-serif;
+    color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+    padding: 0;
+
+}
+
+#main {
+  flex-grow: 1; /* main alanını mümkün olduğunca büyüt */
+}
+
+header{
+    color: #fff;
+    padding: 20px;
+}
+
+footer{
+    background-color: #222;
+      color: white;
+      padding: 20px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.search-form input, .search-form button {
+    margin: 10px;
+    padding: 10px;
+}
+
+.hero-wrapper {
+    background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)), 
+    url('../images/banner2.png') no-repeat center center / cover;
+    margin-left: calc(50% - 50vw);  /* Taşma: sola */
+    margin-right: calc(50% - 50vw); /* Taşma: sağa */
+    width: 100vw;
+    margin-top: -175px; /* 👈 HEADER'ın yüksekliğine göre ayarla */
+    padding-top: 175px;  /* Aynı değeri burada geri koy, içerik aşağı kaçmasın */
+}
+
+.hero {
+    min-height: 70vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+
+.fixed-form {
+    width: auto;
+}
+
+.full-width-separator {
+    margin: 0;
+    border: none;
+    height: 1px;
+    background-color: rgb(172, 172, 172);
+    width: 100vw; /* Tam ekran */
+    margin-left: calc(50% - 50vw); /* Container dışına taşır */
+    opacity: 0.7;
+}
+
+ 
+
+.login-register-image{
+    height: 650px;
+    transform: translateX(250px); /* sola göre sağa kaydırır */
+    max-width: 150%;
+}
+@media (max-width: 769px) {
+  .login-register-image {
+        display: none;
+  }
+}
+
+
+.header-pages{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  justify-content: end; 
+}
+@media (max-width: 992px) {
+  .header-pages {
+        display: none;
+  }
+}
+
+.login-register-header{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+@media (max-width: 991px) {
+  .login-register-header {
+        display: none;
+  }
+}
+
+.input-login-register{
+    border: none;
+    background-color: #ebebeb;
+    height: 55px;
+
+}
+
+.footer-banner {
+  height: auto;
+}
+@media (max-width: 769px) {
+  .footer-banner {
+        display: none;
+  }
+}
+
+
+.footer-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 576px) {
+  .footer-img {
+    display: none; 
+  }
+}
+
+.phone-margin{
+    display: none;
+}
+@media (max-width: 769px) {
+  .phone-margin {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+  }
+}
+
+.footer-section {
+  background-color: #f5f5f5; /* açık gri zemin */
+}
+
+.footer-logo {
+  height: 30px;
+}
+
+.footer-text {
+  font-size: 0.75rem; 
+}
+
+@media (max-width: 1199px) {
+  .pagesTitles {
+        display: none !important;
+  }
+}
+
+

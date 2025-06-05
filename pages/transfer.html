@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transfer</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/transfer.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    </head>
+        <script src="../js/script.js"></script>
+
+    <body>
+
+        <!-- header resim -->
+        <div class="transfer-hero-wrapper shadow-lg" ></div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="header"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <main id="main">
+                            <div class="container">
+                                <!-- vehicle-details-payment  -->
+                                <div class="row mt-5">
+                                    <div class="col-md-9">
+                                            <div class="container my-4 mt-4">
+<div class="d-flex justify-content-between align-items-center">
+<div class="step text-center flex-fill">
+<div class="circle border border-dark rounded-circle mx-auto mb-2 active"></div>
+<div class="step-label  text-dark">Vehicle</div>
+</div>
+<div class="line flex-fill"></div>
+
+<div class="step text-center flex-fill">
+<div class="circle border border-secondary rounded-circle mx-auto mb-2"></div>
+<div class="step-label text-muted">Details</div>
+</div>
+<div class="line flex-fill"></div>
+
+
+<div class="step text-center flex-fill">
+<div class="circle border border-secondary rounded-circle mx-auto mb-2"></div>
+<div class="step-label text-muted">Transfer</div>
+</div>
+</div>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-3" style="display: none;"></div>
+                                </div>
+
+                            
+                                <!-- STEP 1 - VEHİCLE -->
+                                <div class="row mt-5" >
+
+                                    <!-- vehicle column -->
+                                    <div class="col-md-9 " id="stepOneVehicle">
+                                                
+
+                                                <!-- Vehicle Container -->
+                                                <div class="container">
+                                                
+                                                        <!-- Sıralama Dropdown'u -->
+                                                        <nav class="navbar navbar-vehicle  navbar-light bg-light border shadow-sm">
+                                                            <div style="margin-left: 15px;  margin-top: 5px;">
+                                                                <h3>Vehicle</h3>
+                                                            </div>
+                                                            <div class="d-flex align-items-baseline  gap-3" >
+                                                                <label for="sortSelect" class="mb-0"><strong>Sıralama:</strong></label>
+                                                                <select id="sortSelect" class="form-select form-select-sm w-auto" style="margin-right: 10px;">
+                                                                    <option value="asc">Fiyata Göre Artan</option>
+                                                                    <option value="desc">Fiyata Göre Azalan</option>
+                                                                </select>
+                                                            </div>
+                                                        </nav>
+                                                        
+                                                        <!-- Loading -->
+                                                        <div id="loader" class="mt-5" style="
+                                                        justify-content: center;
+                                                        align-items: center;
+                                                        text-align: center;
+                                                        height: 200px;
+                                                        ">
+                                                        <div class="spinner-border text-warning" role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                        </div>
+                                                        <!-- CAR LİST -->
+                                                        <div class="row mt-3" id="carList"></div>
+                                                </div>
+
+                                                <!-- Card Details Modal -->
+                                                <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="carModalLabel">Details</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body p-4" id="carModalBody"></div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                    </div>
+
+                                    <!-- details -->
+                                    <div class="col-md-9" id="stepTwoDetails">
+                                        <div class="container my-4 mt-4">
+
+                                            <div class="card p-4 shadow-sm border">
+                                            <h3 class="mt-4 fw-semibold">Details</h3>
+                                            <hr>
+                                            <!-- Flight/train number -->
+                                            <div class="mt-2 mb-4">
+                                                <label class="form-label " style="font-size: larger;">
+                                                Flight/train number 
+                                                </label>
+
+                                                <div class="input-group">
+                                                <span class="input-group-text bg-light">
+                                                    <i class="bi bi-airplane-engines-fill"></i>
+                                                </span>
+                                                <input type="text" class="form-control bg-light" placeholder="e.g. LH1868" required>
+                                                </div>
+
+                                                <div class="form-text mt-1">
+                                                Please provide your flight number (driver will track your flight)
+                                                </div>
+                                            </div>
+
+                                            <!-- Child seat checkbox
+                                            <div class="form-check mb-4">
+                                                <input class="form-check-input" type="checkbox" id="boosterSeatCheck">
+                                                <label class="form-check-label" for="boosterSeatCheck">
+                                                Need a child or booster seat?
+                                                </label>
+                                            </div> -->
+
+                                            <!-- Driver notes -->
+                                            <div class="mb-2 mt-2">
+                                                <label class="form-label " style="font-size: larger;">
+                                                Driver notes (Outward)
+                                                <i class="bi bi-question-circle ms-1" data-bs-toggle="tooltip" title="Optional: Luggage info, requests. Don’t add phone/email here."></i>
+                                                </label>
+
+                                                <textarea class="form-control bg-light" rows="3" placeholder="Luggage info, special requests... No sensitive data—add phone in next step."></textarea>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- transfer -->
+                                  <div class="col-md-9" id="stepThreeTransfer" >
+                                        <div class="card p-4 shadow-sm border">
+                                            <h3 class="mt-4 fw-semibold">Transfer</h3>
+                                            <hr>
+                                            <div id="passengerForms" class="mt-4"></div>
+
+                                        </div>
+                                    </div>
+                                  
+                                     <!-- filter - booking - detail  column -->
+                                    <div class="col-md-3">
+                                       
+                                         
+                                        <!-- yoour booking -->
+                                        <div class="card p-4 mt-4 shadow" style="width: 100%; height: fit-content; background-color: #F9F9F9; border: none;">
+                                        <div class="row">
+                                            <div class="col-12 text-center mt-2 mb-4">
+                                                    <h4 class="text-muted mb-2">Your Booking</h4>
+                                            </div>
+                                            <div class="col-9 text-start d-flex align-items-center">
+                                                    <span  class="text-muted mb-2">Outward journey</span>
+                                            </div>
+                                            <div class="col-3  text-end">
+                                                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editTransferModal"  onclick="prepareModalData()">
+                                                <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="row g-3">
+                                           <div class="col-auto d-flex flex-column align-items-center justify-content-center">
+                                                <!-- From (Black Box) -->
+                                                <div style="
+                                                    width: 10px;
+                                                    height: 10px;
+                                                    background-color: black;
+                                                    border-radius: 4px;">
+                                                </div>
+
+                                                <!-- Line -->
+                                                <div class="animated-line"></div>
+
+
+                                                <!-- To (Yellow Box) -->
+                                                <div style="
+                                                    width: 10px;
+                                                    height: 10px;
+                                                    background-color: orange;
+                                                    border-radius: 4px;">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text Content -->
+                                            <div class="col">
+                                                <h6 class="text-muted" id="from" style="margin-top: 5px;"></h6>
+                                                <h6 class="text-muted" id="to" style="margin-top: 32px;"></h6>
+                                            </div>
+                                            <div class="col-12 col-md-12 d-flex align-items-center">
+                                            <i class="bi bi-calendar4-week"></i>
+                                            <div class="text-muted ms-2" id="pickupDate"></div>
+                                            </div>
+                                            <div class="col-12 col-md-12 d-flex align-items-center">
+                                            <i class="bi bi-clock-history"></i>
+                                            <div class="text-muted ms-2" id="pickupTime"></div>
+                                            </div>
+                                            <div class="col-12 col-md-12 d-flex align-items-center">
+                                            <i class="bi bi-person"></i>
+                                            <div class="text-muted ms-2" id="passengers"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+
+                                        <!-- Favicon -->
+                                        <div class="container-fluid p-0  text-center mt-3 mb-3 ">
+  <div class="line-with-logo">
+    <img src="../images/favicon.png" alt="Logo" />
+  </div>
+</div>
+
+                                          <!-- filter -->
+                                        <div class="card p-3 mt-4 shadow" style="width: 100%; height: fit-content;" id="filterCars">
+                                    <div>
+                                        <h4 class="text-center mt-2 mb-2 text-muted">Filter</h4>
+
+                                        <hr class="w-100">
+                                        
+                                        <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" value="Depositosuz" id="deposito">
+                                        <label class="form-check-label" for="deposito">Depozitosuz</label>
+                                        </div>
+
+                                        <!-- Yakıt -->
+                                        <div class="section-header" data-bs-target="#fuelGroup" style="font-size: larger;">▲ Yakıt</div>
+                                        <div id="fuelGroup" class="filter-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Dizel" id="dizel">
+                                            <label class="form-check-label" for="dizel">Dizel</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Benzin" id="benzin">
+                                            <label class="form-check-label" for="benzin">Benzin</label>
+                                        </div>
+                                        </div>
+
+                                        <!-- Vites -->
+                                        <div class="section-header" data-bs-target="#gearGroup" style="font-size: larger;">▲ Vites</div>
+                                        <div id="gearGroup" class="filter-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Otomatik" id="otomatik">
+                                            <label class="form-check-label" for="otomatik">Otomatik</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Manuel" id="manuel">
+                                            <label class="form-check-label" for="manuel">Manuel</label>
+                                        </div>
+                                        </div>
+
+                                        <!-- Koltuk Sayısı -->
+                                        <div class="section-header" data-bs-target="#seatGroup" style="font-size: larger;">▲ Koltuk Sayısı</div>
+                                        <div id="seatGroup" class="filter-group mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="5 Kişilik" id="5kisilik">
+                                            <label class="form-check-label" for="5kisilik">5 Kişilik</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="7 Kişilik" id="7kisilik">
+                                            <label class="form-check-label" for="7kisilik">7 Kişilik</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="9 Kişilik" id="9kisilik">
+                                            <label class="form-check-label" for="9kisilik">9 Kişilik</label>
+                                        </div>
+                                        </div>
+
+                                        <button class="btn btn-warning w-100 mt-4" onclick="showSelected()">Filtrele</button>
+                                    </div>
+
+                                    <!-- <div class="mt-3">
+                                        <h6>Seçilenler:</h6>
+                                        <ul id="selectedList" class="list-unstyled"></ul>
+                                    </div> -->
+                                        </div>
+
+                                        <!-- car details -->
+                                        <div id="carListDetail">
+ 
+                                        </div>
+
+
+                                    </div>
+                                   
+                                </div>
+
+
+                            <!-- SABİT ALT BAR -->
+<div class="altTab shadow p-3 pt-4" >
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Sol -->
+      <div class="col-12 col-md-6 d-flex align-items-center mb-3 mb-md-0" id="stepLeft">
+        <i class="bi bi-car-front-fill me-2" style="font-size: x-large;"></i>
+        <strong class="me-2" style="font-size: large;">Your Choice:</strong>
+        <span id="selectedCar" style="font-size: large;">Economy</span>
+      </div>
+      <!-- Sağ -->
+      <div class="col-12 col-md-6 text-md-end"  id="stepRight">
+        <button class="btn w-100 w-md-auto"
+          style="color: white; padding: 15px; background: linear-gradient(to right, black, #434343); border: none; font-size: large;"
+          onclick="logSelectedCar(); goForward();">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+                                <!-- Editable Transfer Modal -->
+                                <div class="modal fade" id="editTransferModal" tabindex="-1" aria-labelledby="editTransferModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editTransferModalLabel">Transfer Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">From</label>
+                                            <input type="text" id="fromInput" class="form-control bg-light">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">To</label>
+                                            <input type="text" id="toInput" class="form-control bg-light">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Pickup Date</label>
+                                            <input type="date" id="pickupDateInput" class="form-control bg-light">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Pickup Time</label>
+                                            <input type="time" id="pickupTimeInput" class="form-control bg-light">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Passengers</label>
+                                            <input type="number" id="passengersInput" class="form-control bg-light" min="1">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-success" onclick="saveUpdatedTransfer()">Save Changes</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+
+
+         <div id="alertContainer" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 9999; width: 100%; max-width: 500px;"></div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+        <script src="../js/alert.js"></script>
+        <script src="../js/transfer.js"></script>
+        
+    </body>
+
+</html>

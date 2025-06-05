@@ -1,0 +1,108 @@
+
+
+.transfer-hero-wrapper {
+    background: 
+    linear-gradient(to bottom, rgb(59 59 59 / 78%), rgba(0, 0, 0, 0)), 
+    url('../images/bannerTurkey.jpg') no-repeat center center / cover;
+    margin-left: calc(50% - 50vw);  /* Taşma: sola */
+    margin-right: calc(50% - 50vw); /* Taşma: sağa */
+    width: 100vw;
+    margin-top: -175px;
+    padding-top: 175px; 
+    height: 90px;
+}
+
+
+.section-header {
+cursor: pointer;
+font-weight: bold;
+margin-top: 10px;
+}
+.filter-group {
+margin-top: 10px;
+overflow: hidden;
+transition: max-height 0.5s ease;
+}
+
+
+#loader{
+    display: flex;
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    background-color: white;
+}
+
+.circle.active {
+  background-color: black;
+  border: 4px solid white;
+  outline: 2px solid black;
+}
+
+.line {
+  height: 2px;
+  background-color: #d1d5db; /* Bootstrap gray-300 */
+  margin: 0 4px;
+}
+
+.line.completed {
+  background-color: gold !important;
+}
+
+#stepOneVehicle{
+  display: flex;
+}
+
+#stepTwoDetails{
+  display: none;
+}
+#stepThreeTransfer{
+  display: none;
+}
+
+#filterCars{
+  display: flex;
+}
+
+.animated-line {
+  width: 3px;
+  height: 40px;
+  margin: 4px 0;
+  background: linear-gradient(to bottom, rgb(224, 222, 222) 0%, black 100%, rgb(224, 222, 222) 100%);
+  background-size: 100% 200%;
+  animation: scrollLine 2s linear infinite;
+}
+@keyframes scrollLine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.navbar-vehicle{
+   margin-top: 25px; height: 70px;
+}
+.altTab{
+  position: sticky; bottom: 0; background: white; z-index: 1000; border-top: 1px solid #ddd;  width: 75%;
+}
+@media (max-width: 769px) {
+  .altTab {
+    width:100%; 
+  }
+  .navbar-vehicle {
+    height: 100px;
+  }
+}
+
+@media (max-width: 439px) {
+  .navbar-vehicle {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+}
+

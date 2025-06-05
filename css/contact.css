@@ -1,0 +1,32 @@
+.contact-hero-wrapper {
+    background: 
+    linear-gradient(to bottom, rgb(59 59 59 / 78%), rgba(0, 0, 0, 0)), 
+    url('../images/banner-contact.png') no-repeat center center / cover;
+    margin-left: calc(50% - 50vw);  /* Taşma: sola */
+    margin-right: calc(50% - 50vw); /* Taşma: sağa */
+    width: 100vw;
+    margin-top: -175px; 
+    padding-top: 175px;  
+}
+
+.contact-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.contact-card{
+  max-width: 600px;
+  border: none;
+  height: 100%;
+  min-height: 500px;
+  max-height: 500px;
+
+}
+@media (max-width: 769px) {
+  .contact-card {
+        margin-top: 100px;
+        max-height: 550px;
+  }
+}

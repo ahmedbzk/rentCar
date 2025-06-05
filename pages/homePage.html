@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/homePage.css">
+</head>
+<body>
+  <!-- Background image -->
+  <div class="hero-wrapper">
+      <section class="hero d-flex align-items-center text-center text-white">
+          <div class="container ">
+              <div class="row">
+                  <div class="col-md-6 mt-3 mb-3">
+                      <h1 class="display-5 fw-bold text-start">Your Reliable airport transfers</h1>
+                  </div>
+                  <div class="col-md-6 mt-3 mb-3">
+                      <div class="container ">
+                        <ul class="nav nav-tabs ulMargin" id="bookingTabs" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link active text-black liButton" style="border-radius: 8px 8px 0px 0px;" id="transfer-tab" data-bs-toggle="tab" data-bs-target="#transfer" type="button" role="tab">Transfer</button>
+                          </li>
+                          <!-- <li class="nav-item" role="presentation">
+                            <button class="nav-link text-black liButton" id="hourly-tab"  style="border-radius: 0px 8px 0px 0px;" data-bs-toggle="tab" data-bs-target="#hourly" type="button" role="tab"><i class="bi bi-stopwatch" style="margin-right: 5px;"></i>Rent a Car</button>
+                          </li> -->
+                        </ul>
+
+                        <div class="tab-content p-3 text-dark rounded" id="bookingTabsContent" style="background-color: white;">
+                          <!-- Transfer Tab -->
+                          <div class="tab-pane fade show active" id="transfer" role="tabpanel">
+                            <div>
+                                Vip transfer araçlarımız 5 kişiliktir. Müşteri sayısı 5 kişiden fazla ise her 5 kişilik grup için ayrı bir rezervasyon yapınız!
+                            </div>
+
+                            <form class="mt-2" id="transferForm" onsubmit="handleFormSubmit(event)">
+                              <!-- from -->
+                              <div class="custom-form-div rounded p-2 mb-2" >
+                                <h6 class="formh6">From</h6>
+                                <div class="input-group custom-input">
+                                  <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-geo-alt-fill text-dark"></i>
+                                  </span>
+                                  <input type="text" id="fromInput" class="form-control border-0" placeholder="Address, airport, hotel, ..." required style="background-color: transparent; color: black;">
+                                </div>
+                              </div>
+                              <!-- to -->
+                              <div class="custom-form-div rounded p-2 mb-2" >
+                                <h6 class="formh6">To</h6>
+                                <div class="input-group custom-input">
+                                  <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-geo-alt-fill text-dark"></i>
+                                  </span>
+                                  <input type="text" id="toInput" class="form-control border-0" placeholder="Address, airport, hotel, ..." required style="background-color: transparent; color: black;">
+                                </div>
+                              </div>
+                              <!-- pickup times -->
+                              <div class="row">
+                                <div class="col-12 col-md-6">
+                                   <div class="custom-form-div rounded p-2 mb-2" >
+                                  <h6 class="formh6" style="color: #8c929c;">Pickup date</h6>
+                                  <div class="input-group custom-input">
+                                    <span class="input-group-text bg-transparent border-0">
+                                        <i class="bi bi-calendar2-week-fill" style="color: #6B7280"></i>
+                                    </span>
+                                    <input type="date" id="pickupDateInput"class="form-control border-0" required style="background-color: transparent; color: black;">
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                   <div class="custom-form-div rounded p-2 mb-2" >
+                                <h6 class="formh6" style="color: #8c929c;">Pickup time</h6>
+                                <div class="input-group custom-input">
+                                  <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-clock-fill" style="color: #6B7280"></i>
+                                  </span>
+                                  <input type="time" id="pickupTimeInput" class="form-control border-0"  required style="background-color: transparent; color: black;">
+                                </div>
+                              </div>
+                                </div>
+                              </div>
+
+                              <!-- add return 
+                              <div id="returnContainer" class="addReturnDiv rounded text-center" >
+                                <button id="addReturnBtn" type="button" class="btn w-100 " onclick="toggleReturnInputs(true)">
+                                  ADD RETURN
+                                </button>
+
+                                <div id="returnInputs" style="display: none;">
+                                  <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="custom-form-div rounded p-2 mb-2" >
+                                          <h6 class="formh6" style="color: #8c929c;">Return date</h6>
+                                          <div class="input-group custom-input">
+                                            <span class="input-group-text bg-transparent border-0">
+                                                <i class="bi bi-calendar2-week-fill" style="color: #6B7280"></i>
+                                            </span>
+                                            <input type="date" class="form-control border-0" required style="background-color: transparent; color: black;">
+                                          </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                      <div class="custom-form-div rounded p-2 mb-2" >
+                                          <h6 class="formh6" style="color: #8c929c;">Return time</h6>
+                                          <div class="input-group custom-input">
+                                            <span class="input-group-text bg-transparent border-0">
+                                                <i class="bi bi-calendar2-week-fill" style="color: #6B7280"></i>
+                                            </span>
+                                            <input type="time" class="form-control border-0" required style="background-color: transparent; color: black;">
+                                          </div>
+                                        </div>
+                                    </div>
+                                   
+                                  </div>
+                                   <div class=" btnCloseAddReturn">
+                                      <button onclick="toggleReturnInputs(false)" >
+                                        &times;
+                                      </button>
+                                    </div>
+                                </div>
+                              </div>-->
+
+                              <!-- passengers -->
+                              <div class="custom-form-div rounded p-2 mb-2 mt-2 " >
+                                <h6 class="formh6" style="color: #8c929c;"> <i class="bi bi-people"></i> Passengers</h6>
+                                <div class="input-group ">
+                                  <input type="number" id="passengersTransfer" class="form-control text-start no-border-input" value="1" min="1" max="5" readonly >
+                                  <button type="button" class="btn btn-dark rounded" onclick="adjustPassengers(-1)" style="margin-right: 20px;"><i class="bi bi-dash-lg"></i></button>
+                                  <button type="button" class="btn btn-dark rounded" onclick="adjustPassengers(1)" style="margin-right: 20px;"><i class="bi bi-plus-lg"></i></button>                                
+                                </div>
+                              </div>
+
+                              <button type="submit" class="btn w-100 p-3 mt-2 mb-2" style="background-color: black; color: white;"><i class="bi bi-search" style="margin-right: 5px;"></i> SEARCH</button>
+                            </form>
+                          </div>
+                       
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+
+  <!-- Section icons -->
+  <section class="features py-5">
+      <div class="container">
+        <div class="row text-start">
+          <div class="col-md-3">
+            <img src="images/world.png" alt="Global" class="mb-3" width="100">
+            <h6 >Global</h6>
+            <p class="text-muted small">Wherever your journey leads, Transfeero ensures your comfort along the way.</p>
+            <a href="#" class="text-warning small">Learn more →</a>
+          </div>
+          <div class="col-md-3">
+            <img src="images/person.png" alt="Professional drivers" class="mb-3" width="100">
+            <h6 >Professional drivers</h6>
+            <p class="text-muted small">Professional Drivers, Timely Rides, Relaxed Travel</p>
+            <a href="#" class="text-warning small">Learn more →</a>
+          </div>
+          <div class="col-md-3">
+            <img src="images/arrow.png" alt="Chauffeur by the hour" class="mb-3" width="100">
+            <h6 >Chauffeur by the hour</h6>
+            <p class="text-muted small">Hire an hourly chauffeur for your business or leisure needs.</p>
+            <a href="#" class="text-warning small">Learn more →</a>
+          </div>
+          <div class="col-md-3">
+            <img src="images/road.png" alt="City rides" class="mb-3" width="100">
+            <h6 >City rides</h6>
+            <p class="text-muted small">Explore the city anytime, anywhere—even long distances.</p>
+            <a href="#" class="text-warning small">Learn more →</a>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Favicon -->
+ <div class="container-fluid p-0">
+  <div class="line-with-logo">
+    <img src="images/favicon.png" alt="Logo" />
+  </div>
+</div>
+
+  <!-- Section images -->
+   <section class="py-5 mt-5 mb-5">
+    <div class="container ">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="card shadow" style="border-radius: 50px;  border: none;">
+            <img src="../images/homePhoto.png" alt="Photo" class="homePhoto">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h6 class="fw-bold" style="color: rgb(66, 66, 66);">
+            Travel Comfortably, Arrive Confidently
+          </h6>
+          <h1 class="fw-bold mt-4">
+            Seamless
+          </h1>
+          <p class="mt-4" style="color: rgb(94, 94, 94);">
+            Enjoy the luxury of a private chauffeur service tailored exclusively for you. Our seamless online booking makes traveling stress-free, allowing you to focus on what truly matters. Arrive at your destination feeling refreshed and assured.
+          </p>
+          <p style="color: rgb(94, 94, 94);">
+            Our professional chauffeurs provide exceptional reliability and personalized attention, ensuring a comfortable and smooth journey every time.
+          </p>
+        </div>
+      </div>
+    </div>
+   </section>
+
+   <!-- Section ticks -->
+  <section class="bg-light rounded-5 p-5  mt-5 mb-5">
+    <div class="container">
+      <h4 class=" mb-4">How does it work</h4>
+      <div class="row ">
+        <div class="col-12 col-md-4 d-flex align-items-start mt-3" style="flex-direction: column;">
+          <div class="flex-shrink-0">
+            <div class=" text-white rounded-circle d-flex justify-content-center align-items-center" style="width:40px; height:40px; font-weight:600; background-color: rgb(255 150 7 / 77%) !important;">
+              1
+            </div>
+          </div>
+            <h6 style="margin-top: 25px;">Enter your route and select car</h6>
+            <p class="mb-0 small text-muted">Enter all the required data in the search field and then choose the desired vehicle.</p>
+        </div>
+
+        <div class="col-12 col-md-4 d-flex align-items-start mt-3" style="flex-direction: column;">
+          <div class="flex-shrink-0">
+            <div class=" text-white rounded-circle d-flex justify-content-center align-items-center" style="width:40px; height:40px; font-weight:600; background-color: rgb(255 150 7 / 77%) !important;">
+              2
+            </div>
+          </div>
+          <div >
+            <h6 style="margin-top: 25px;">Complete booking form</h6>
+            <p class="mb-0 small text-muted">Enter the details of the lead passenger, add extras if you wish. Proceed to payment and receive your voucher.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 d-flex align-items-start mt-3" style="flex-direction: column;">
+          <div class="flex-shrink-0">
+            <div class=" text-white rounded-circle d-flex justify-content-center align-items-center" style="width:40px; height:40px; background-color: rgb(80 195 117 / 54%) !important" >
+              <i class="bi bi-check-lg" style="color: green;"></i>
+            </div>
+          </div>
+          <div >
+            <h6 style="margin-top: 25px;">Meet your driver</h6>
+            <p class="mb-0 small text-muted">You will receive your driver's details 6 hours prior to pickup and he will be waiting for you on-site with a Name Sign.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Favicon -->
+ <div class="container-fluid p-0 mb-5">
+  <div class="line-with-logo">
+    <img src="images/favicon.png" alt="Logo" />
+  </div>
+</div>
+
+  <script src="../js/script.js"></script>
+
+</body>
+
+
+
+
